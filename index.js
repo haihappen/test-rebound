@@ -17,6 +17,13 @@ class Header extends Component {
 
     spring.addListener(this);
     spring.setEndValue(1);
+
+    this.removeListener = () => spring.removeListener(this);
+  }
+
+
+  componentWillUnmount() {
+    this.removeListener();
   }
 
 
@@ -27,7 +34,9 @@ class Header extends Component {
 
   render() {
     return (
-      <h1>{this.state.value}</h1>
+      <h1>
+        {this.state.value}
+      </h1>
     );
   }
 }
